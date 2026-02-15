@@ -31,22 +31,30 @@ Cette phase est le cœur du projet. Elle se divise en 3 livrables majeurs :
     *   Ajouter une fonction de recherche/filtrage simple.
 
 #### 2.2. Les Dashboards (Visualisation)
-*   **Objectif** : Deux pages de tableaux de bord distincts avec des graphiques pertinents.
-*   **Dashboard 1 (Vue Globale)** :
-    *   Statistiques clés (KPIs) : Nombre total d'utilisateurs, Age moyen, Répartition Homme/Femme.
-    *   Graphiques : Histogramme des âges, Camembert des genres (utiliser Chart.js ou une lib Python comme Plotly/Matplotlib générant des images).
-*   **Dashboard 2 (Analyse Approfondie)** :
-    *   Correlénations : Revenu vs Heures de travail, Abonnés vs Posts.
-    *   Cartographie : Répartition géographique des utilisateurs (si données pays disponibles).
+*   **Objectif** : Deux pages de tableaux de bord distincts avec des graphiques pertinents basés sur les données (`data.csv`).
+*   **Dashboard 1 (Vue Globale & Démographie)** :
+    *   **KPIs** : Nombre total d'utilisateurs (50k), Age moyen, Followers moyens.
+    *   **Graphiques** :
+        *   Répartition géographique (Top 10 `country`).
+        *   Pyramide des âges (`age`).
+        *   Répartition par Profession (`employment_status`) et Revenus (`income_level`).
+*   **Dashboard 2 (Comportement & Engagement)** :
+    *   **KPIs** : Ratio Abonnés/Posts, Heures connectées vs Vie sociale.
+    *   **Graphiques** :
+        *   Type de contenu préféré (`content_type_preference`: Reels, Photos...).
+        *   Thèmes favoris (`preferred_content_theme`).
+        *   Corrélation : `posts_created_per_week` vs `followers_count`.
+        *   Impact du `privacy_setting_level` sur le nombre d'abonnés.
 
 #### 2.3. Machine Learning / Innovation
 *   **Objectif** : Apporter une valeur ajoutée "Intelligente".
-*   **Idées** :
-    *   **Clustering (K-Means)** : Regrouper les utilisateurs par profil (ex: "Influenceurs", "Utilisateurs Passifs", "Créateurs Actifs").
-    *   **Prédiction** : Prédire le nombre d'abonnés en fonction de l'activité.
+*   **Choix Validé** : **Prédiction du Potentiel Premium**
+    *   **Problème** : Identifier qui est susceptible de payer un abonnement (`subscription_status`).
+    *   **Données** : Utiliser Âge, Revenu, Activité, Followers.
+    *   **Algorithme** : Classification (Random Forest).
 *   **Tâches** :
-    *   Créer un script/service de ML dans une app dédiée ou un module `ml_utils.py`.
-    *   Créer une vue pour lancer l'analyse et afficher les résultats.
+    *   Créer un module `ml_utils.py` pour entraîner/charger le modèle.
+    *   Créer une vue pour afficher le "Score Premium" d'un utilisateur.
 
 ### Phase 3 : Fonctionnalités Transverses - **Collaboration Commune**
 *   **Authentification et Profil** (Dédé & Lucrèce avec support Chœurtis) :
