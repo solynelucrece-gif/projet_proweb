@@ -15,7 +15,7 @@ Ce document définit la répartition des tâches et le workflow pour l'équipe, 
 *   ✅ Configuration de l'environnement (`.env`, `requirements.txt`)
 *   ✅ Base de données (MySQL/PostgreSQL) et Migrations
 *   ✅ Script d'importation des données (`remplirdb.py`)
-*   ✅ Règles de Git et de bonne conduite (`.gitignore`, `.agent/rules.md`)
+*   ✅ Règles de Git et de bonne conduite (`.gitignore`)
 *   [ ] Création du superutilisateur imposé (`admin` / `AS3admin`)
 *   [ ] Configuration des URLs de base (`asproject/urls.py`)
 
