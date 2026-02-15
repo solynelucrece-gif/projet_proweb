@@ -1,0 +1,79 @@
+# Guide de Collaboration et Planification - Projet ProWeb
+
+Ce document définit la répartition des tâches et le workflow pour l'équipe, afin de garantir une collaboration efficace et le respect des délais (16 Février 2026).
+
+## 👥 Équipe et Rôles
+
+*   **Chœurtis** : Resp. Configuration & Backend (Infrastructure, Base de données, Sécurité)
+*   **Dédé & Lucrèce** : Resp. Dashboard & Data Science (Vues, Templates, Analyse de données, Machine Learning)
+
+---
+
+## 📅 Roadmap Détaillée
+
+### Phase 1 : Fondation (Déjà quasi-terminée) - **Responsable : Chœurtis**
+*   ✅ Configuration de l'environnement (`.env`, `requirements.txt`)
+*   ✅ Base de données (MySQL/PostgreSQL) et Migrations
+*   ✅ Script d'importation des données (`remplirdb.py`)
+*   ✅ Règles de Git et de bonne conduite (`.gitignore`, `.agent/rules.md`)
+*   [ ] Création du superutilisateur imposé (`admin` / `AS3admin`)
+*   [ ] Configuration des URLs de base (`asproject/urls.py`)
+
+### Phase 2 : Développement du Dashboard - **Responsables : Dédé & Lucrèce**
+Cette phase est le cœur du projet. Elle se divise en 3 livrables majeurs :
+
+#### 2.1. Affichage des Données (Le "Read")
+*   **Objectif** : Une page listant les données brutes de la base de manière lisible (Tableau paginé).
+*   **Tâches** :
+    *   Créer la vue `user_list_view` dans `dashboard/views.py`.
+    *   Créer le template `user_list.html` (héritant de `base.html`).
+    *   Ajouter la pagination (ex: 20 utilisateurs par page).
+    *   Ajouter une fonction de recherche/filtrage simple.
+
+#### 2.2. Les Dashboards (Visualisation)
+*   **Objectif** : Deux pages de tableaux de bord distincts avec des graphiques pertinents.
+*   **Dashboard 1 (Vue Globale)** :
+    *   Statistiques clés (KPIs) : Nombre total d'utilisateurs, Age moyen, Répartition Homme/Femme.
+    *   Graphiques : Histogramme des âges, Camembert des genres (utiliser Chart.js ou une lib Python comme Plotly/Matplotlib générant des images).
+*   **Dashboard 2 (Analyse Approfondie)** :
+    *   Correlénations : Revenu vs Heures de travail, Abonnés vs Posts.
+    *   Cartographie : Répartition géographique des utilisateurs (si données pays disponibles).
+
+#### 2.3. Machine Learning / Innovation
+*   **Objectif** : Apporter une valeur ajoutée "Intelligente".
+*   **Idées** :
+    *   **Clustering (K-Means)** : Regrouper les utilisateurs par profil (ex: "Influenceurs", "Utilisateurs Passifs", "Créateurs Actifs").
+    *   **Prédiction** : Prédire le nombre d'abonnés en fonction de l'activité.
+*   **Tâches** :
+    *   Créer un script/service de ML dans une app dédiée ou un module `ml_utils.py`.
+    *   Créer une vue pour lancer l'analyse et afficher les résultats.
+
+### Phase 3 : Fonctionnalités Transverses - **Collaboration Commune**
+*   **Authentification et Profil** (Dédé & Lucrèce avec support Chœurtis) :
+    *   Page de Login/Logout (Django Auth).
+    *   Page Profil (Modification des infos personnelles + Photo).
+*   **Pages Publiques** (Dédé & Lucrèce) :
+    *   Page Accueil (Présentation du projet + Membres).
+    *   Page Contact (Formulaire d'envoi de mail).
+*   **Rapport et Manuel** (Tout le monde) :
+    *   Rédaction du manuel utilisateur PDF.
+    *   Finalisation du `requirements.txt`.
+
+---
+
+## 🛠 Workflow de Travail
+
+1.  **Git Flow** :
+    *   Toujours faire un `git pull` avant de commencer.
+    *   Travailler sur des branches si possible (ex: `feature/dashboard-dede`, `feature/config-choeurtis`), sinon communiquer avant de push sur `main`.
+    *   Message de commit clair : "Ajout vue liste utilisateurs", "Correction config BD".
+
+2.  **Standards** :
+    *   Code en **Français** (Commentaires).
+    *   Utiliser "Nous/On" dans les rapports.
+    *   Pas de secrets dans le code.
+
+## 🚀 Prochaines Actions Immédiates
+
+1.  **Chœurtis** : Créer l'admin et s'assurer que l'authentification de base fonctionne.
+2.  **Dédé & Lucrèce** : Créer les fichiers de base pour le Dashboard (Vues et URLs vides pour commencer) et se répartir les 2 dashboards.
