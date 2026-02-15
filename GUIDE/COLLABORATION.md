@@ -28,6 +28,7 @@ Cette phase est le cœur du projet. Elle se divise en 3 livrables majeurs :
     *   Créer la vue `user_list_view` dans `dashboard/views.py`.
     *   Créer le template `user_list.html` (héritant de `base.html`).
     *   Ajouter la pagination (ex: 20 utilisateurs par page).
+        > ⚠️ **POURQUOI ?** : Nous avons 50 000 lignes. Tout afficher d'un coup ferait **planter le navigateur** (trop de mémoire utilisée pour l'affichage) et rendrait le chargement extrêmement lent. La pagination est obligatoire pour la performance.
     *   Ajouter une fonction de recherche/filtrage simple.
 
 #### 2.2. Les Dashboards (Visualisation)
