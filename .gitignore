@@ -43,9 +43,10 @@ asproject/asproject/.env
 *.xlsx
 *.xls
 
-# IDEs
+# IDEs & Tools
 .vscode/
 .idea/
+.agent/
 *.swp
 *.swo
 
